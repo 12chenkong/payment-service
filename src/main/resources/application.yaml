@@ -6,14 +6,15 @@ spring:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
     consumer:
-      group-id: payament-service-group
-      auto-offset-reset: latest
+      group-id: payment-service-group
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
       properties:
         spring.json.trusted.packages: "co.istad.chan.paymentservice.events"
         spring.json.value.default.type: co.istad.chan.paymentservice.events.SeatReservedEvent
         spring.json.use.type.headers: false
+      auto-offset-reset: latest
+
 
 
   application:
@@ -34,3 +35,5 @@ spring:
 
 server:
   port: 9998
+
+
